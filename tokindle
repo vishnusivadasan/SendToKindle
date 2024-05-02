@@ -1,4 +1,6 @@
 #!/bin/bash 
+
+
 if [ -z "$1" ]
   then
         echo "No arguments supplied"
@@ -20,6 +22,7 @@ if [ -z "$1" ]
 
         echo "converting to" $my_string
 
+        # install calibre
         # ebook-convert "$full_string" "$my_string" --prefer-author-sort --output-profile=kindle --linearize-tables --smarten-punctuation --enable-heuristics
 
 
