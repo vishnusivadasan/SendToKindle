@@ -1,0 +1,31 @@
+#!/bin/bash 
+if [ -z "$1" ]
+  then
+        echo "No arguments supplied"
+        exit 0
+  else
+        if [[ $1 != *.mobi ]]
+          then
+                convert_to_mobi "$1"
+        fi
+        
+        echo "sending "$1" to kindle" 
+
+
+
+        full_string="$1"
+        search_string=".${full_string##*.}"
+        replace_string=".mobi"
+        my_string=${full_string/$search_string/$replace_string}
+
+        echo "converting to" $my_string
+
+        # ebook-convert "$full_string" "$my_string" --prefer-author-sort --output-profile=kindle --linearize-tables --smarten-punctuation --enable-heuristics
+
+
+
+
+        #s-nail -a "$1" mysterious.18.vishnu4@kindle.com <<< ""
+        s-nail -a "$full_string" mysterious.18.vishnu4@kindle.com <<< ""
+
+fi
